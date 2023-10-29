@@ -40,8 +40,7 @@ namespace UITool
 		public static UIEventListener GetUIEventListener(Transform childTf)
         {
 			if(childTf == null) return null;
-			UIEventListener listener = childTf.GetComponent<UIEventListener>();
-			if(listener == null)
+			if(!childTf.TryGetComponent<UIEventListener>(out UIEventListener listener))
             {
 				listener= childTf.gameObject.AddComponent<UIEventListener>();
             }
